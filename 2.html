@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div class="aa">01</div>
+    <div class="aa">02</div>
+    <div class="aa">03</div>
+    <div>04</div>
+</div>
+<script>
+//    var reg = /\d+$/;
+//    var str ='3SFASDF92';
+//    console.log(reg.exec(str));
+//
+//    var reg = /\s+\g/;
+//    var str ='蓝  色  理   想';
+//    console.log(str.replace(reg,' '));
+//
+//
+//    var str = '56789';
+//    var reg = /^\d+$/;
+//    var reg2 = /\D/;
+//    console.log(reg.test(str));
+//    console.log(!reg2.test(str));
+//
+////    手机号码正则表达式
+//    var str = '13190892822';
+//    var reg = /^0*(13|15)\d{9}$/;
+//    console.log(reg.test(str));
+//
+////    去掉字符前后空格
+//    var str = '   bs c  ';
+//    var reg = /^\s+|\s+$/g;
+//    console.log(str.replace(reg," "));
+
+
+//    document.getElementsByClassName("aa");
+//    document.getElementsByClassName()解决兼容性问题自己封装的方法
+
+    var oDiv1 = document.getElementById('aa');
+    var list = getByClass('aa',oDiv1);
+    console.log(list);
+    function getByClass(clsName,context) {
+        context = context || document ;
+        if(context.getElementsByClassName){
+            return context.getElementsByClassName(clsName);
+        }else{
+            context.getElementsByTagName('*');
+            var result = [];
+            var reg = new RegExp('\\b'+clsName +'\\b');
+            for(var i=0;i<allTags.length;i++){
+                if(reg.test(allTags.className)){
+                    return push(allTags.className);
+                }
+            }
+            return result;
+        }
+    }
+</script>
+</body>
+</html>
